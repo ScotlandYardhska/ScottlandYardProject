@@ -66,7 +66,7 @@ public class lobbyActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-            //Testliste erstellen
+            //Testliste erstellen peeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeenis
             spielerListe.add(spitzName);
 
 
