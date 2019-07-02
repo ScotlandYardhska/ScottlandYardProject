@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ScottlandYardProjekt</string>
+    <string name="title_activity_create">createActivity</string>
+
+    <string name="createbutton">Spiel erstellen</string>
+    <string name="joinbutton">Spiel beitreten</string>
+    <string name="title_activity_join">joinActivity</string>
+    <string name="textfeld1">Spielname</string>
+    <string name="textfeld2">Passwort</string>
+    <string name="textfeld3">Spitzname</string>
+    <string name="sieg">Sieg! Mr.X wurde geschnappt</string>
+    <string name="niederlage">Niederlage! Mr.X ist entkommen</string>
+    <string name="wait">Warten auf Administrator und Mitspieler</string>
+    <string name="refresh">Refresh</string>
+    <string name="weiter">Spiel starten</string>
+    <string name="filler">Filler</string>
+    <string name="access_token" translatable="false">pk.eyJ1IjoibW9leHgiLCJhIjoiY2p4NGY1YXFrMDUxcTQza2VwNzU4NGxpNyJ9.6XbZgkD4zbEsbhyW1Ud2dA</string>
+    <string name="user_location_permission_explanation">EXPLANATION_HERE</string>
+    <string name="user_location_permission_not_granted">Permission not Granted</string>
+
+</resources>
