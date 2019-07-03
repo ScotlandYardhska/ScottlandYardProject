@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,17 +16,28 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 import static android.widget.RelativeLayout.TRUE;
 
 public class lobbyActivity extends AppCompatActivity implements View.OnClickListener {
 
     ArrayList<String> spielerListe = new ArrayList<>();
+    final static String DEVICE_UUID = UUID.randomUUID().toString();
+    final static Long SYNC_TIME = 30000L;
+    final static Long START_TIME = 30000L;
 
 
     @Override
@@ -67,16 +79,79 @@ public class lobbyActivity extends AppCompatActivity implements View.OnClickList
 
             }
 
+
             /// TODO: 01.06.2019 Mit server verbinden, einloggen, checken obs passt, warten bis alle da sind
             // Use this server:
-            String URL="http://scotland-yard.iums.eu/";
+            String URL_Create="https://scotland-yard.iums.eu/createGame";
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("deviceUUID", DEVICE_UUID);
+            jsonObject.put("timestamp", System.currentTimeMillis());
+            // Der Spieler, der das Spiel erstellt ist also Mr. X
+            jsonObject.put("role", "X");
+            jsonObject.put("syncTime", SYNC_TIME );
+            jsonObject.put("startTime", START_TIME );
+
+            //Set<String> keys = pack.keySet();
+            //for (String key : keys) {
+            //    try{
+            //        jsonObject.put(key, JSONObject.wrap(pack.get(key)));
+            //    } catch(JSONException e) {
+            //        // Handle exception here
+            //    }
+            //}
 
              //Create Request Queue
+
             RequestQueue requestQueue= Volley.newRequestQueue(this);
+            JsonObjectRequest objectRequest=new JsonObjectRequest(
+                    Request.Method.POST,
+                    URL_Create,
+                    // TODO: ersetzte null durch json object
+                    jsonObject,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            // Hier muss rein, was mit Antwort passieren soll
+                            Log.e("Rest Response", response.toString());
+                        }
+
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e( "Rest Response", error.toString());
+                        }
+                    });
+                    requestQueue.add(objectRequest);
+
+
+
+            // write into join function!!!
+            //RequestQueue requestQueue= Volley.newRequestQueue(this);
             //JsonObjectRequest objectRequest=new JsonObjectRequest(
             //        Request.Method.GET,
             //        URL,
+            //        // TODO: ersetzte null durch json object
+            //        null,
+            //        new Response.Listener<JSONObject>() {
+            //            @Override
+            //            public void onResponse(JSONObject response) {
+            //                Log.e("Rest Response", response.toString());
+            //            }
+
+             //       },
+             //       new Response.ErrorListener() {
+             //           @Override
+             //           public void onErrorResponse(VolleyError error) {
+             //               Log.e( "Rest Response", error.toString());
+             //           }
+             //       }
+
+
             //);
+
+            requestQueue.add(objectRequest);
 
             //Testliste erstellen
             spielerListe.add(spitzName);
