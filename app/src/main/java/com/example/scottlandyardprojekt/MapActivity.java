@@ -78,7 +78,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             enableLocationComponent(style);
 
 
-                            // Map is set up and the style has loaded.
+                            // Map is set up and the style has loaded.151
 
 
                         }
