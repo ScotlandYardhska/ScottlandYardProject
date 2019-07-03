@@ -13,6 +13,11 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,7 +56,7 @@ public class lobbyActivity extends AppCompatActivity implements View.OnClickList
             // Ist das hier korreckt? Wo kommt Rolle her?
 
             String rolle = pack.getString("rolle");
-            String server_url = pack.getString("http://scotland-yard.iums.eu/")
+            String server_url = pack.getString("http://scotland-yard.iums.eu/");
 
             //Text ändern, um Warten auszudrücken
 
@@ -63,10 +68,17 @@ public class lobbyActivity extends AppCompatActivity implements View.OnClickList
             }
 
             /// TODO: 01.06.2019 Mit server verbinden, einloggen, checken obs passt, warten bis alle da sind
+            // Use this server:
+            String URL="http://scotland-yard.iums.eu/";
 
+             //Create Request Queue
+            RequestQueue requestQueue= Volley.newRequestQueue(this);
+            //JsonObjectRequest objectRequest=new JsonObjectRequest(
+            //        Request.Method.GET,
+            //        URL,
+            //);
 
-
-            //Testliste erstellen peeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeenis
+            //Testliste erstellen
             spielerListe.add(spitzName);
 
 

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.scottlandyardprojekt"
         minSdkVersion 19
@@ -27,5 +27,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.mapbox.mapboxsdk:mapbox-android-sdk:8.0.1'
+
+    // changed to use REST API
+    // send request
+    implementation 'com.android.volley:volley:1.1.0'
+    // convert to gson formate for communication
+    implementation 'com.google.code.gson:gson:2.4'
 
 }

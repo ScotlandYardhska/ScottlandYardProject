@@ -11,8 +11,8 @@
         android:id="@+id/buttonCreate"
         android:layout_width="361dp"
         android:layout_height="86dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="332dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="308dp"
         android:text="@string/createbutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,8 +21,8 @@
         android:id="@+id/buttonJoin"
         android:layout_width="361dp"
         android:layout_height="86dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:text=
 
             "@string/joinbutton"
